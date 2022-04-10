@@ -1,4 +1,35 @@
 /* These styles are generated from project.scss. */
+:root {
+  --cake-color: #444251;
+  --cake-btn-color: #454351;
+
+  --cake-shadow: rgba(69, 67, 81, 0.3);
+  --cake-shadow-50: rgba(69, 67, 81, 0.5);
+  --cake-shadow-65: rgba(69, 67, 81, 0.65);
+}
+
+body {
+    background-image: url("../images/funcake_bg_main.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+@font-face {
+    font-family: rose;
+    src: url('../fonts/rose.ttf');
+}
+
+@font-face {
+    font-family: open-sans-bold;
+    src: url('../fonts/open-sans-bold.ttf');
+}
+
+@font-face {
+    font-family: open-sans-light;
+    src: url('../fonts/open-sans-light.ttf');
+}
+
 
 .alert-debug {
   color: black;
@@ -10,4 +41,95 @@
   color: #b94a48;
   background-color: #f2dede;
   border-color: #eed3d7;
+}
+
+
+.f-text-bold {
+    font-family: open-sans-bold;
+    /*color: var(--cake-color);*/
+}
+
+.f-text-light {
+    /*font-family: open-sans-light;*/
+    color: var(--cake-color);
+}
+
+.navbar-brand {
+    color: var(--cake-color);
+    font-family: rose;
+    font-weight: bolder;
+    font-size: 1.6rem;
+}
+
+.navbar-brand:hover {
+    color: #4a306f;
+}
+
+
+
+h1, h2, h3,
+h4, h5, h6 {
+    color: var(--cake-color);
+    font-family: open-sans-bold;
+}
+
+.btn {
+    border-radius: 10px !important;
+}
+
+.rounded-3 {
+  border-radius: 25px !important;
+}
+
+.shadow-lg-cake {
+  /*box-shadow: 0 1rem 3rem var(--cake-shadow) !important;*/
+  /*box-shadow: 0 0.5rem 1rem var(--cake-shadow) !important;*/
+  box-shadow: 0 0.5rem 1rem var(--cake-shadow) !important;
+}
+
+.btn-cake {
+    color: var(--cake-btn-color);
+    background-color: #fffeff;
+    border-color: var(--cake-btn-color);
+    box-shadow: 0 0.5rem 1rem var(--cake-shadow) !important;
+}
+
+.btn-cake:hover {
+    color: #fffeff;
+    background-color: var(--cake-btn-color);
+    border-color: var(--cake-btn-color);
+    box-shadow: 0 0.5rem 1rem rgba(69, 67, 81, 0) !important;
+}
+
+.btn-cake:focus,
+.btn-cake.focus {
+    box-shadow: 0 0 .2rem var(--cake-shadow-50);
+}
+
+.btn-cake:focus + .btn-cake, .btn-cake:focus {
+    color: var(--cake-btn-color);
+    background-color: #fffeff;
+    border-color: var(--cake-btn-color);
+    box-shadow: 0 0 0.25rem var(--cake-shadow-50);
+}
+
+.btn-cake.disabled,
+.btn-cake:disabled {
+    color: #fffeff;
+    background-color: var(--cake-shadow-65);
+    border-color: var(--cake-btn-color);
+}
+
+.btn-cake:not(:disabled):not(.disabled):active,
+.btn-cake:not(:disabled):not(.disabled).active,
+.show>.btn-cake.dropdown-toggle {
+    color: #fffeff;
+    background-color: var(--cake-btn-color);
+    border-color: var(--cake-btn-color);
+}
+
+.btn-cake:not(:disabled):not(.disabled):active:focus,
+.btn-cake:not(:disabled):not(.disabled).active:focus,
+.show>.btn-cake.dropdown-toggle:focus {
+    box-shadow: 0 0 .2rem var(--cake-shadow-50);
 }

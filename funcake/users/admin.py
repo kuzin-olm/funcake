@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import Group
 
 from funcake.users.forms import UserAdminChangeForm, UserAdminCreationForm
 
@@ -21,10 +22,11 @@ class UserAdmin(auth_admin.UserAdmin):
             {
                 "fields": (
                     "is_active",
+                    "is_confectioner",
                     "is_staff",
                     "is_superuser",
-                    "groups",
-                    "user_permissions",
+                    # "groups",
+                    # "user_permissions",
                 ),
             },
         ),
@@ -32,3 +34,6 @@ class UserAdmin(auth_admin.UserAdmin):
     )
     list_display = ["username", "name", "is_superuser"]
     search_fields = ["name"]
+
+
+admin.site.unregister(Group)

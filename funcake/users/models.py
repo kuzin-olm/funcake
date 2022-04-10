@@ -16,7 +16,7 @@ class User(AbstractUser):
     first_name = None   # CharField(_("first name"), max_length=150)
     last_name = None  # type: ignore
 
-    is_confectioner = BooleanField(_("confectioner status"), default=False)
+    is_confectioner = BooleanField("Статус кондитера", default=False)
 
     def get_absolute_url(self):
         """Get url for user's detail view.
