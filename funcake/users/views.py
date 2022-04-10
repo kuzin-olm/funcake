@@ -13,6 +13,7 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
     slug_field = "username"
     slug_url_kwarg = "username"
+    template_name = "users/profile.html"
 
 
 user_detail_view = UserDetailView.as_view()
@@ -22,7 +23,7 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     model = User
     fields = ["name"]
-    success_message = _("Information successfully updated")
+    success_message = "Информация успешно обновлена."
 
     def get_success_url(self):
         assert (

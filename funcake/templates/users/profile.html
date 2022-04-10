@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} профиль: {{ object.username }}{% endblock %}
+
+{% block content %}
+<div class="container">
+  </br>
+  <h1 class="text-center">Информация о пользователе</h1>
+  </br>
+
+  <div class="mb-3 row justify-content-center">
+    <label for="staticUserName" class="col-sm-2 col-form-label">Логин\никнейм</label>
+    <div class="col-sm-4">
+      <input type="text" readonly class="form-control" id="staticUserName" value="{{ object.username }}">
+    </div>
+  </div>
+
+  <div class="mb-3 row justify-content-center">
+    <label for="staticName" class="col-sm-2 col-form-label">Имя</label>
+    <div class="col-sm-4">
+      <input type="text" readonly class="form-control" id="staticName" value="{% if object.name %}{{ object.name }}{% else %}Не указано{% endif %}">
+    </div>
+  </div>
+
+  <div class="mb-3 row justify-content-center">
+    <label for="staticStatus" class="col-sm-2 col-form-label">Кондитер</label>
+    <div class="col-sm-4">
+      <input type="text" readonly class="form-control" id="staticStatus" value="{% if object.is_confectioner %}Да{% else %}Нет{% endif %}">
+    </div>
+  </div>
+
+  <div class="mb-3 row justify-content-center">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-4">
+      <input type="text" readonly class="form-control" id="staticEmail"
+             value="{% for emailaddress in object.emailaddress_set.all %}{{ emailaddress.email }}{% if not forloop.last %}, {% endif %}{% if emailaddress.primary %} (основной){% endif %}{% endfor %}">
+    </div>
+  </div>
+  </br>
+  {% if object == request.user %}
+  <!-- Action buttons -->
+  <div class="vstack gap-2 col-md-5 mx-auto" role="group" aria-label="btn">
+    <a href="{% url 'users:update' %}" class="btn btn-outline-primary">редактировать информацию</a>
+    <a href="{% url 'account_email' %}" class="btn btn-outline-primary">редактировать email</a>
+    <a href="{% url 'account_change_password' %}" class="btn btn-outline-primary">сменить пароль</a>
+  </div>
+  <!-- End Action buttons -->
+  {% endif %}
+
+</div>
+{% endblock content %}

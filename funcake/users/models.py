@@ -1,5 +1,5 @@
 from django.contrib.auth.models import AbstractUser
-from django.db.models import CharField
+from django.db.models import CharField, BooleanField
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
@@ -12,9 +12,11 @@ class User(AbstractUser):
     """
 
     #: First and last name do not cover name patterns around the globe
-    name = CharField(_("Name of User"), blank=True, max_length=255)
-    first_name = None  # type: ignore
+    name = CharField("Имя", blank=True, max_length=255)
+    first_name = None   # CharField(_("first name"), max_length=150)
     last_name = None  # type: ignore
+
+    is_confectioner = BooleanField(_("confectioner status"), default=False)
 
     def get_absolute_url(self):
         """Get url for user's detail view.

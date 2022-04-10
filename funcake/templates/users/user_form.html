@@ -1,17 +1,20 @@
-{% extends "base.html" %}
+{% extends "account/base.html" %}
 {% load crispy_forms_tags %}
 
 {% block title %}{{ user.username }}{% endblock %}
 
 {% block content %}
-  <h1>{{ user.username }}</h1>
+  </br>
+  <h1 class="text-center">Редактирование профиля: {{ user.username }}</h1>
+  </br>
+
   <form class="form-horizontal" method="post" action="{% url 'users:update' %}">
     {% csrf_token %}
+
     {{ form|crispy }}
-    <div class="control-group">
-      <div class="controls">
-        <button type="submit" class="btn btn-primary">Update</button>
-      </div>
+
+    <div class="vstack gap-2 col-md-5 mx-auto" role="group" aria-label="btn">
+      <button type="submit" class="btn btn-primary">Обновить</button>
     </div>
   </form>
 {% endblock %}
