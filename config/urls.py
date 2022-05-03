@@ -19,6 +19,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     path("recipes/", include("funcake.recipes.urls", namespace="recipes")),
+    path("ingredients/", include("funcake.ingredients.urls", namespace="ingredients")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS

@@ -62,7 +62,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarUser">
                   <li><a class="dropdown-item" href="{% url 'users:detail' request.user.username  %}">Профиль</a></li>
-                  <li><a class="dropdown-item" href="#">Ингредиенты</a></li>
+                  <li><a class="dropdown-item" href="{% url 'ingredients:list' %}">Ингредиенты</a></li>
                   <li><a class="dropdown-item" href="{% url 'recipes:list' %}">Рецепты</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Парсеры</a></li>

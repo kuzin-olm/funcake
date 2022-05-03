@@ -91,10 +91,22 @@ h4, h5, h6 {
     color: var(--cake-btn-color);
     background-color: #fffeff;
     border-color: var(--cake-btn-color);
-    box-shadow: 0 0.5rem 1rem var(--cake-shadow) !important;
 }
 
 .btn-cake:hover {
+    color: #fffeff;
+    background-color: var(--cake-btn-color);
+    border-color: var(--cake-btn-color);
+}
+
+.btn-cake-shadow {
+    color: var(--cake-btn-color);
+    background-color: #fffeff;
+    border-color: var(--cake-btn-color);
+    box-shadow: 0 0.5rem 1rem var(--cake-shadow) !important;
+}
+
+.btn-cake-shadow:hover {
     color: #fffeff;
     background-color: var(--cake-btn-color);
     border-color: var(--cake-btn-color);
@@ -102,11 +114,14 @@ h4, h5, h6 {
 }
 
 .btn-cake:focus,
-.btn-cake.focus {
+.btn-cake.focus,
+.btn-cake-shadow:focus,
+.btn-cake-shadow.focus {
     box-shadow: 0 0 .2rem var(--cake-shadow-50);
 }
 
-.btn-cake:focus + .btn-cake, .btn-cake:focus {
+.btn-cake:focus + .btn-cake, .btn-cake:focus,
+.btn-cake-shadow:focus + .btn-cake-shadow, .btn-cake-shadow:focus {
     color: var(--cake-btn-color);
     background-color: #fffeff;
     border-color: var(--cake-btn-color);
@@ -114,7 +129,9 @@ h4, h5, h6 {
 }
 
 .btn-cake.disabled,
-.btn-cake:disabled {
+.btn-cake:disabled,
+.btn-cake-shadow.disabled,
+.btn-cake-shadow:disabled {
     color: #fffeff;
     background-color: var(--cake-shadow-65);
     border-color: var(--cake-btn-color);
@@ -122,7 +139,10 @@ h4, h5, h6 {
 
 .btn-cake:not(:disabled):not(.disabled):active,
 .btn-cake:not(:disabled):not(.disabled).active,
-.show>.btn-cake.dropdown-toggle {
+.show>.btn-cake.dropdown-toggle,
+.btn-cake-shadow:not(:disabled):not(.disabled):active,
+.btn-cake-shadow:not(:disabled):not(.disabled).active,
+.show>.btn-cake-shadow.dropdown-toggle {
     color: #fffeff;
     background-color: var(--cake-btn-color);
     border-color: var(--cake-btn-color);
@@ -130,6 +150,9 @@ h4, h5, h6 {
 
 .btn-cake:not(:disabled):not(.disabled):active:focus,
 .btn-cake:not(:disabled):not(.disabled).active:focus,
-.show>.btn-cake.dropdown-toggle:focus {
+.show>.btn-cake.dropdown-toggle:focus,
+.btn-cake-shadow:not(:disabled):not(.disabled):active:focus,
+.btn-cake-shadow:not(:disabled):not(.disabled).active:focus,
+.show>.btn-cake-shadow.dropdown-toggle:focus {
     box-shadow: 0 0 .2rem var(--cake-shadow-50);
 }

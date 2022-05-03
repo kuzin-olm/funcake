@@ -38,7 +38,7 @@ class Recipe(models.Model):
         return reverse("recipes:detail", kwargs={"pk": self.pk})
 
     def save(self, *args, **kwargs):
-        super().save()
+        super().save(*args, **kwargs)
 
         # если есть загруженная картинка
         # потом лучше перенести в форму
