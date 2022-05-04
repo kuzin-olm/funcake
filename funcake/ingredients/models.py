@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
+from funcake.recipes.models import RecipeLayer
+
 
 class Measurement(models.Model):
     """
@@ -37,9 +39,10 @@ class IngredientConsistency(models.Model):
     Консистенция ингредиента
     """
     class Meta:
-        ordering = ["-ingredient__name"]
+        ordering = ["ingredient__name"]
 
     ingredient = models.ForeignKey(Ingredient, on_delete=models.PROTECT)
+    recipe_layer = models.ForeignKey(RecipeLayer, on_delete=models.CASCADE, related_name="ingredient_consistency")
     qty = models.FloatField("Количество")
 
     @property

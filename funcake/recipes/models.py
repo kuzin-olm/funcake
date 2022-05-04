@@ -63,3 +63,22 @@ class Recipe(models.Model):
                 img.thumbnail((width, height))
                 img.save(self.img_prew.path)
                 img.close()
+
+
+class RecipeLayer(models.Model):
+    """
+    Слой в торте/рецепте объединяющий консистенции ингредиентов
+    """
+
+    class Meta:
+        ordering = ["name"]
+
+    name = models.CharField("Название слоя", max_length=255)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, null=True, blank=True, related_name="layers")
+    # todo: в будущем подумать над моделью RecipeParameter и RecipeParameterType
+    # todo: для расширения аля диаметр/радиус/площадь/квадрат и т.п.
+    diameter = models.FloatField("Диаметр слоя")
+    is_template = models.BooleanField("Шаблонный слой", default=False)
+
+    def __str__(self):
+        return self.name
